@@ -13,7 +13,7 @@ Simple CRUD api to store person's data in in-memory database.
     * `age` — person's age (`number`, **required**)
     * `hobbies` — person's hobbies (`array` of `strings` or empty `array`, **required**)
 
-Value of the port on which application runs stored in `.env` file. Please, add .env file by yourself if needed.
+Value of the port on which application runs stored in `.env` file.
 
 To run server in development mode, please, inter in console this command:
 
