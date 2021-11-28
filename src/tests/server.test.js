@@ -5,7 +5,7 @@ const app = require('../server');
 const { error } = require('../utils/simple-dotenv').config();
 
 if (error) {
-  throw error
+  //throw error
 }
 
 const mockPerson = {

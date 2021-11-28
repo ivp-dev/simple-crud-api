@@ -7,7 +7,7 @@ const write404 = require('./utils/write-404');
 const { error } = require('./utils/simple-dotenv').config();
 
 if (error) {
-    throw error
+    //throw error
 }
 
 const server = http.createServer((req, res) => {
