@@ -8,6 +8,12 @@ if (error) {
   throw error
 }
 
+const mockPerson = {
+  "name": "Joe",
+  "age": 37,
+  "hobbies": ["programming"]
+}
+
 describe('rest api e2e tests', () => {
 
   test('get', async () => await request(app).get('/person').set('Accept', 'application/json')
@@ -26,11 +32,7 @@ describe('rest api e2e tests', () => {
 
   test('put', async () => {
 
-    const postResponse = await request(app).post('/person').send({
-      "name": "Joe",
-      "age": 37,
-      "hobbies": ["programming"]
-    }).set('Accept', 'application/json');
+    const postResponse = await request(app).post('/person').send(mockPerson).set('Accept', 'application/json');
 
     const newPerson = { ...postResponse.body };
     const updatedPerson = { ...postResponse.body, age: 35 }
@@ -47,11 +49,7 @@ describe('rest api e2e tests', () => {
 
   test('delete', async () => {
 
-    const response = await request(app).post('/person').send({
-      "name": "Joe",
-      "age": 37,
-      "hobbies": ["programming"]
-    }).set('Accept', 'application/json');
+    const response = await request(app).post('/person').send(mockPerson).set('Accept', 'application/json');
 
     const person = { ...response.body };
 
