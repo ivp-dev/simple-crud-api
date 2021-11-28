@@ -4,11 +4,7 @@ const uuidValidation = require('./utils/uuid-validation');
 const write400 = require('./utils/write-400');
 const write404 = require('./utils/write-404');
 
-const { error } = require('./utils/simple-dotenv').config();
-
-if (error) {
-    //throw error
-}
+require('./utils/simple-dotenv').config();
 
 const server = http.createServer((req, res) => {
     // get all persons

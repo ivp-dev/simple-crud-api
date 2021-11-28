@@ -27,7 +27,8 @@ function config() {
     const encoding = 'utf8';
 
     try {
-        const parsed = parse(fs.readFileSync(filePath, { encoding }));
+        const data = fs.readFileSync(filePath, { encoding });
+        const parsed = parse(data);
 
         Object.keys(parsed).forEach(function (key) {
             if (!Object.prototype.hasOwnProperty(process.env, key)) {

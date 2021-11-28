@@ -2,12 +2,6 @@ const { describe, test, expect } = require('@jest/globals');
 const request = require('supertest');
 const app = require('../server');
 
-const { error } = require('../utils/simple-dotenv').config();
-
-if (error) {
-  //throw error
-}
-
 const mockPerson = {
   "name": "Joe",
   "age": 37,
