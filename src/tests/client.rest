@@ -1,0 +1,47 @@
+@hostname = http://localhost
+@port = 5001
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+# @name get
+GET {{host}}/person HTTP/1.1
+Content-Type: {{contentType}}
+
+###
+
+# @name create
+POST {{host}}/person HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Joe",
+    "age": 37,
+    "hobbies": [ "programming"]
+}
+
+###
+
+@personId = {{create.response.body.$.id}}
+
+###
+
+# @name getById
+GET {{host}}/person/{{personId}} HTTP/1.1
+
+###
+
+# @name update
+PUT {{host}}/person/{{personId}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Jon",
+    "age": 35,
+    "hobbies": [ "programming"]
+}
+
+###
+
+# @name remove
+DELETE {{host}}/person/{{personId}} HTTP/1.1
+Content-Type: application/json
